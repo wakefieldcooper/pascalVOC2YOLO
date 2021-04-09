@@ -1,4 +1,4 @@
-# pascalvoc2yolov5txt
+# Pascal VOC to Yolo txt format
 Conversion tool for object detection tasks. Convert PascalVOC xml's to yolov5txt
 
 
@@ -26,5 +26,5 @@ To run the program, ensure all xmls are in a single directory you can reference,
 
 ## Further information
 For information on dataset format and training information.
-Please refer to: [Caption]https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data
+Please refer to: https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data
 This will cover how pixel dimensions are converted to normalised xywh format.

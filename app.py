@@ -29,8 +29,6 @@ def main():
     """
     labels = {}
     categories = {}
-    # Path(args.input).mkdir(parents=True, exist_ok=True)
-    Path(args.output).mkdir(parents=True, exist_ok=True)
     ##NOTE: May need to ensure it doesn't overwrite existing. not needed 
     # as functionality right now. Onus on user to ensure original xml files
     # don't have duplicates names.
@@ -41,12 +39,10 @@ def main():
                 #create annotations object
                 annotations = etree.fromstring(file.read())
                 #extract elements that are needed 
-                image_filename = annotations.find('filename').text
                 image_size = annotations.find('size')
                 image_width = float(image_size.find('width').text)
                 image_height = float(image_size.find('height').text)
                 boxes = annotations.iterfind('object')
-                file_line = image_filename
                 for box in boxes:
                     annotation_list = []
                     #Extract bounding box pixel data
@@ -61,11 +57,10 @@ def main():
                         labels[label_name] = len(labels)
                     class_id = labels[label_name]
                     categories[class_id] = label_name
-
+                    # send off for conversion
                     xywh = convert((image_width, image_height), (class_id, xmin, xmax, ymin, ymax))
                     annotation_list.extend(xywh)
                     line = ' '.join(annotation_list)
-                    # file_line = ' '.join((file_line, line))
                     txtfile.write(f'{line}\n')
         txtfile.close()
     print(categories)
