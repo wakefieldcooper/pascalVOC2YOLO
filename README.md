@@ -28,3 +28,11 @@ To run the program, ensure all xmls are in a single directory you can reference,
 For information on dataset format and training information.
 Please refer to: https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data
 This will cover how pixel dimensions are converted to normalised xywh format.
+
+### Improvement list
+- [ ] Implement progress bar
+- [ ] Train/test splitting
+- [ ] Add check for corresponding image
+- [ ] Check for duplicate files
+- [ ] Ability to set class numbers + class id's (e.g. dog is class id 0)
+- [ ] Pytests + github testing + badges
